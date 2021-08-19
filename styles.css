@@ -1,0 +1,115 @@
+:root{
+    --translate: 180px; 
+}
+body {
+    background: #FFF;
+    height: 100vh;
+    position: relative;
+}
+
+.container {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    -webkit-perspective: 800px;
+    -webkit-perspective-origin: 50% 110px;
+}
+
+.cube {
+    margin: auto;
+    width: 200px;
+    height: 200px;
+    -webkit-transform-style: preserve-3d; /* Enable 3-D style */
+    -webkit-animation-name: rotate; /* type of animation is rotating */
+    -webkit-animation-duration: 20s; /* duration of animation in seconds */
+    -webkit-animation-timing-function: ease-in-out; /* timing function of animation */
+    -webkit-animation-iteration-count: infinite; /* the infinite property of iteration make cube to rotate infinetly around Y axis 360 deg. */
+}
+
+@-webkit-keyframes rotate {
+    from {
+        -webkit-transform: rotateY(0deg);
+    }
+    50% {
+        -webkit-transform: rotateY(360deg);
+    }
+    to {
+        -webkit-transform: rotateY(0deg);
+    }
+}
+
+.face {
+    position: absolute;
+    /*seems like in stack*/
+    height: 300px;
+    width: 300px;
+    padding: 50px;
+    object-fit: cover;
+}
+
+/* .cube:hover {
+    --translate: 150px;
+}
+
+.cube:hover + .face{
+    background-color: rgba(50, 50, 50, 0.5);
+} */
+
+#F1 {
+    -webkit-transform: rotateX(90deg) translatez(var(--translate));
+}
+#F2 {
+    -webkit-transform: translatez(var(--translate));
+}
+#F3 {
+    -webkit-transform: rotateY(90deg) translatez(var(--translate));
+}
+#F4 {
+    -webkit-transform: rotateY(180deg) translatez(var(--translate));
+}
+#F5 {
+    -webkit-transform: rotateY(-90deg) translatez(var(--translate));
+}
+#F6 {
+    -webkit-transform: rotateX(-90deg) translatez(var(--translate)) rotate(180deg);
+}
+
+.box-text{
+    position: absolute;
+    left: 50%;
+    bottom: 10%;
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    transform: translateX(-50%);
+}
+
+.text{
+    display: flex;
+    justify-content: center;
+}
+
+.text span{
+    margin: 1rem;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 3rem;
+    font-weight: 600;
+    color:tomato;
+}
+
+
+@media screen and (min-width: 425px) {
+    :root{
+        --translate: 200px; 
+    }
+    .face {
+        height: 300px;
+        width: 300px;
+    }
+}
+
